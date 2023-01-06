@@ -2,7 +2,9 @@
 
 <template>
   <el-menu class="el-menu-demo" mode="horizontal">
-    <el-menu-item index="1">TODO-LIST</el-menu-item>
+    <el-menu-item index="1">
+      <h1>TODO-LIST</h1>
+    </el-menu-item>
 
   </el-menu>
   <el-row :gutter="20" style="margin-top:8px;text-align: -webkit-center;">
@@ -129,7 +131,7 @@ export default {
   },
   methods: {
     addList() {
-      if(this.content === "" ){
+      if(this.content === "" || this.content.match(/^[ ]*$/)){
         
         this.placeholder = "Don't null in this"
         this.color = "danger";
