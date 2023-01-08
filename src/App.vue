@@ -42,6 +42,7 @@
     <el-col :span="8" :xs="24" :md="6" 
       v-for="list in todolist"
       :key="list.id"  
+      :class="{editing:list.id == todolist.id}"
     >
     <el-card class="box-card" shadow="hover">
         <el-row gutter="10">
@@ -57,7 +58,7 @@
           </el-col>
           <el-col :span="4">
             <div style="position: relative; top:50%;transform: translateY(-50%);text-align: -webkit-center;">
-              <el-button type="danger" circle>
+              <el-button type="danger" circle @click="del(list)"   >
                 <el-icon>
                   <Delete />
                 </el-icon>
@@ -139,7 +140,6 @@ export default {
           this.placeholder = "Plase Input Something"
           this.color = "success";
         },500)
-        
         return 
       }
       this.isround = !this.isround
@@ -158,8 +158,12 @@ export default {
         })
         this.content = ""
         
-      }, 300)
+      }, 100)
     },
+    del(list){
+      const index = this.todolist.findIndex(key=>key.id==list.id)
+      this.todolist.splice(index,1)
+    }
 
   }
 }
