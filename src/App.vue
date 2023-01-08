@@ -48,7 +48,7 @@
         <el-row gutter="10">
           <el-col :span="2">
             <div style="position: relative; top:50%;transform: translateY(-50%); ">
-              <el-checkbox v-model="list.completed" size="large" />
+              <el-checkbox v-model="list.completed" size="large"  />
             </div>
           </el-col>
           <el-col :span="18">
